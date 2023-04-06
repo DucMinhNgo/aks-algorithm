@@ -2,6 +2,8 @@ import math
 from sage.all import *
 from sage.rings.polynomial.polynomial_ring_constructor import PolynomialRing
 from sage.rings.integer_ring import ZZ
+import sys
+import getopt
 
 # Kiển tra 1 số có viết được dưới dạng a^b hay không
 # flat = True (composite)
@@ -106,8 +108,8 @@ def aks_func(n):
     if (r >= n):
         print('n is prime')
         return
-    
-    print ('Step 4: check prime with r < n')
+
+    print('Step 4: check prime with r < n')
     check_aks_in_rim(r, n)
 
 
@@ -117,8 +119,13 @@ def aks_func(n):
 # 3. conda config --add channels conda-forge
 # 4. conda install sage
 if __name__ == "__main__":
-    # run with python3
+     # run with python3
     # n = 191502863810983023669487066171265783765606176368067317801145776531698322061026648391627756875377807727062582859038489434170143851401
     # n = 45884698721
-    n = 4861
-    aks_func(n)
+    # n = 4861
+    opts, args = getopt.getopt(sys.argv[1:], 'hn:', ["number="])
+    for opt, arg in opts:
+        if opt == '-n':
+            n = int(arg)
+            aks_func(n)
+   
