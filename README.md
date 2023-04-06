@@ -6,3 +6,6 @@
 2. conda activate sage_env
 3. conda config --add channels conda-forge
 4. conda install sage
+
+# run code
+- python AKS.py -n number
